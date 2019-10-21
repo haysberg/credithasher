@@ -4,6 +4,7 @@ import json
 from vendor import checkVendor
 from cchashlib import checkNumberIntegrity
 from vendor import getVendorAPI
+from verify import verify
 
 #If there is not exactly 3 arguments, we stop the program.
 if(len(sys.argv) != 3):
@@ -19,3 +20,5 @@ checkNumberIntegrity(number)
 
 if(mode == "vendor"):
     checkVendor(number)
+if(mode == "verify"):
+    print(verify(number))
