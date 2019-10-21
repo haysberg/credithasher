@@ -21,4 +21,7 @@ checkNumberIntegrity(number)
 if(mode == "vendor"):
     checkVendor(number)
 if(mode == "verify"):
-    print(verify(number))
+    if verify(number):
+        print("The card number is valid !")
+    else :
+        print("The card number is NOT valid, please check your input !")

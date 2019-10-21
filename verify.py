@@ -16,14 +16,9 @@ def verify(ccNumber):
     intArray = stringToIntegerArray(ccNumber)
     res = 0
     for i in range(len(intArray)):
-        print(intArray[i], end=' ')
         if(i % 2 == 0):
             res += luhnAddition(intArray[i])
-            print(luhnAddition(intArray[i]), end =' ')
         else:
             res += intArray[i]
-            print(intArray[i], end=' ')
-        print(i % 2 == 0)
-    print(res)
     return res % 10 == 0
     
