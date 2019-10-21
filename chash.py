@@ -1,6 +1,9 @@
 import sys
 
 from vendor import checkVendor
+from cchashlib import checkNumberIntegrity
+from vendor import parseVendorCSV
+from vendor import getVendorAPI
 
 #If there is not exactly 3 arguments, we stop the program.
 if(len(sys.argv) != 3):
@@ -12,8 +15,11 @@ else:
 mode = sys.argv[1]
 number = sys.argv[2]
 
-if len(number) != 16 :
-    sys.exit("The credit card number you put is not 16 numbers long !")
+checkNumberIntegrity(number)
+
+vendors = []
+parseVendorCSV()
 
 if(mode == "vendor"):
     checkVendor(number)
+    print(getVendorAPI(number))
