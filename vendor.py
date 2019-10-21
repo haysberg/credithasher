@@ -1,16 +1,14 @@
 import requests
 import json
-import io
 
 from cchashlib import stringToIntArray
 
 def checkVendor(ccNumber):
-    return stringToIntArray(ccNumber)
-
-
-def parseVendorCSV():
-    return 0
+    infos = json.loads(getVendorAPI(ccNumber))
+    print("The vendor of the card is " + infos["scheme"])
+    print("This card has been issued in : " + infos["country"]["alpha2"])
+    print("This card is a " + infos["brand"] + " card")
 
 def getVendorAPI(ccNumber):
-    #print("https://lookup.binlist.net/" + ccNumber[:8])
-    return json.dumps(requests.get(url = "https://lookup.binlist.net/" + ccNumber[:8]).json())
+    request = requests.get(url = "https://lookup.binlist.net/" + ccNumber[:8])
+    return json.dumps(request.json())

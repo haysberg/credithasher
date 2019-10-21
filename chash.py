@@ -1,8 +1,8 @@
 import sys
+import json
 
 from vendor import checkVendor
 from cchashlib import checkNumberIntegrity
-from vendor import parseVendorCSV
 from vendor import getVendorAPI
 
 #If there is not exactly 3 arguments, we stop the program.
@@ -17,9 +17,5 @@ number = sys.argv[2]
 
 checkNumberIntegrity(number)
 
-vendors = []
-parseVendorCSV()
-
 if(mode == "vendor"):
     checkVendor(number)
-    print(getVendorAPI(number))
