@@ -26,7 +26,17 @@ def checkNumberIntegrity(string):
 
 
 def luhnAddition(inputInt):
+    """This function takes in an integer and doubles it. If the result is equal or greater than 10, it adds up the digits.
+    
+    Arguments:
+        inputInt {[integer]} -- [This is the integer to be doubled by the function.]
+    
+    Returns:
+        [integer] -- [Gives the transformed integer]
+    """
+    #If the number is greater than 4, doubling it will give a result equal or greater than 10 so we add the digits
     if(inputInt > 4):
         return 1 + (inputInt*2 % 10)
+    #If it's not, we double it normally and send it back
     else:
         return inputInt * 2
