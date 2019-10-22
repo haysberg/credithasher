@@ -5,6 +5,7 @@ from vendor import checkVendor
 from cchashlib import checkNumberIntegrity
 from vendor import getVendorAPI
 from verify import verify
+from generate import generate
 
 #If there is not exactly 3 arguments, we stop the program.
 if(len(sys.argv) != 3):
@@ -16,12 +17,17 @@ else:
 mode = sys.argv[1]
 number = sys.argv[2]
 
-checkNumberIntegrity(number)
-
 if(mode == "vendor"):
     checkVendor(number)
-if(mode == "verify"):
-    if verify(number):
+    checkNumberIntegrity(number)
+elif(mode == "verify"):
+    checkNumberIntegrity(number)
+    if verify(number) % 10 == 0:
         print("The card number is valid !")
     else :
         print("The card number is NOT valid, please check your input !")
+elif(mode == "generate"):
+    if number.isdigit():
+        print(generate(number))
+    else:
+        sys.exit("Your card number should only contain digits !")

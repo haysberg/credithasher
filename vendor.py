@@ -1,7 +1,7 @@
 import requests
 import json
 
-from cchashlib import stringToIntArray
+from cchashlib import stringToIntegerArray
 
 def checkVendor(ccNumber):
     infos = json.loads(getVendorAPI(ccNumber))
