@@ -20,12 +20,16 @@ number = sys.argv[2]
 if(mode == "vendor"):
     checkVendor(number)
     checkNumberIntegrity(number)
+
+
 elif(mode == "verify"):
     checkNumberIntegrity(number)
     if verify(number) % 10 == 0:
         print("The card number is valid !")
     else :
         print("The card number is NOT valid, please check your input !")
+
+        
 elif(mode == "generate"):
     if number.isdigit():
         print(generate(number))
