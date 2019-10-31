@@ -28,8 +28,6 @@ def generate(inputString):
     print("The pre-generated number is : " + str(inputString) + " it is long of : " + str(len(str(inputString))))
     print("The incomplete sum is : " + str(verify(inputString)))
 
-    
-
     numberNeeded = 10 - (verify(inputString) % 10) % 10
     if(numberNeeded == 10):
         numberNeeded = 0
