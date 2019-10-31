@@ -16,18 +16,6 @@ def stringToIntegerArray(inputString):
         res.append(ord(inputString[i]) - 48)
     return res
 
-def integerArrayToString(inputNumber):
-    """This function is used to transform a string array (the one we get as an argument) into an integer array
-    
-    Arguments:
-        inputNumber {integer} -- The number that will be converted into a string
-    
-    Returns:
-        string -- The integer converted to the string type
-    """
-    return chr(inputNumber)
-
-# TODO - Check if this function is used and delete it if not used
 def checkNumberIntegrity(string):
     """This function allows us to check if a credit card number given is valid or not
     

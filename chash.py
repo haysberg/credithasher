@@ -8,7 +8,7 @@ from checksum import checksum
 
 #If there is not exactly 3 arguments, we stop the program.
 if(len(sys.argv) != 3):
-    sys.exit("Usage : python3 chash.py <mode> <card_number>")
+    sys.exit("Usage : python3 chash.py <mode> \"<card_number>\"")
 else:
     print("You chose mode : ", sys.argv[1])
     print("The card number is : ", sys.argv[2])
@@ -19,14 +19,12 @@ number = sys.argv[2]
 if(mode == "vendor"):
     checkVendor(number)
 
-
 elif(mode == "verify"):
     checkNumberIntegrity(number)
     if verify(number) % 10 == 0:
         print("The card number is valid !")
     else :
         print("The card number is NOT valid, please check your input !")
-
         
 elif(mode == "generate"):
     if number.isdigit():
@@ -42,3 +40,6 @@ elif(mode == "checksum"):
             sys.exit("Your card number should only contain digits !")
     else:
         sys.exit("To calculate the checksum, we need the first 15 digits. If you have less, then use the generate option.")
+
+else:
+    raise Exception('Please input a valid mode.')
