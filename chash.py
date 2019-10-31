@@ -18,7 +18,6 @@ number = sys.argv[2]
 
 if(mode == "vendor"):
     checkVendor(number)
-    checkNumberIntegrity(number)
 
 
 elif(mode == "verify"):
