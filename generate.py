@@ -1,6 +1,6 @@
 from cchashlib import stringToIntegerArray
-from cchashlib import luhnAddition
 from verify import verify
+from checksum import checksum
 import random
 import sys
 
@@ -14,27 +14,15 @@ def generate(inputString):
         string -- The generated card number
     """
     print("============================")
-    print("The given number is : " + inputString)
-    print("The number length is : " + str(len(inputString)))
     
-    generatedLength = 16 - (len(inputString))
-    print("We're going to generate a number between 0 and " + str(10 ** generatedLength - 1))
-    genString = str(random.randint(10 ** (generatedLength -1 ), (10 ** generatedLength) - 1))
-    print("The generated following numbers are : " + genString)
-    inputString += genString
-    inputString = inputString[:15]
+    generatedLength = 15 - (len(inputString))
+    if generatedLength > 0:
+        genString = str(random.randint(10 ** (generatedLength -1 ), (10 ** generatedLength) - 1))
+        print("Generated the following numbers to append to the input : " + genString)
+        inputString += genString
     
     print("We need to generate " + str(generatedLength) + " numbers")
-    print("The pre-generated number is : " + str(inputString) + " it is long of : " + str(len(str(inputString))))
+    print("The first 15 numbers are : " + str(inputString))
     print("The incomplete sum is : " + str(verify(inputString)))
 
-    numberNeeded = 10 - (verify(inputString) % 10) % 10
-    if(numberNeeded == 10):
-        numberNeeded = 0
-    print("The number needed is : " + str(numberNeeded))
-    for i in range(10):
-        if (luhnAddition(i) == numberNeeded):
-            inputString += str(luhnAddition(i))
-            #if len(inputString) == 16 :
-            return inputString
-    raise RuntimeError('There was an error during credit card number generation !')
+    return checksum(inputString)
