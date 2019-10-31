@@ -17,8 +17,6 @@ def checkVendor(ccNumber):
             print("This card has been issued in : " + infos["country"]["alpha2"])
         if infos["brand"] != None:
             print("This card is a " + infos["brand"] + " card")
-    else:
-        raise ValueError('The number provided did not link to any vendor.')
 
 def getVendorAPI(ccNumber):
     """This function handles the API call to binlist. This is not in the checkVendor function so that we can reuse it anywhere.
@@ -27,7 +25,7 @@ def getVendorAPI(ccNumber):
         ccNumber {string} -- The card number we want to verify
     
     Returns:
-        json -- The json response that we get from the API
+        array -- The json response that we get from the API, transformed into a format Python can use
     """
 
     request = requests.get(url = "https://lookup.binlist.net/" + ccNumber[:8])
