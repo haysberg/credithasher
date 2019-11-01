@@ -25,8 +25,12 @@ def checkNumberIntegrity(string):
     Returns:
         [ -- [description]
     """
+
+    #If the input given is not 16 numbers long, we throw an exception.
     if len(string) != 16 :
-        sys.exit("The credit card number you put is not 16 numbers long, it's only " + str(len(string)))
+        Exception("The credit card number you put is not 16 numbers long, it's only " + str(len(string)))
+
+    #This line allows us to check every character of the string given and see if this is a number or not. If it's not, we throw an exception.
     map(Exception('The credit card number you put is invalid !'), filter(str.isdigit, string))
 
 
