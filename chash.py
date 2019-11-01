@@ -1,5 +1,7 @@
+#default libraries imports
 import sys
 
+#custom files imports
 from vendor import checkVendor
 from cchashlib import checkNumberIntegrity
 from verify import verify
@@ -25,7 +27,10 @@ if(mode == "vendor"):
     checkVendor(number)
 
 elif(mode == "verify"):
+    #We check the integrity of the input beforehand.
     checkNumberIntegrity(number)
+
+    #If, after adding all the numbers together including the checksum, it is a multiple of 10, it means the credit card number is valid
     if verify(number) % 10 == 0:
         print("The card number is valid !")
     else :
@@ -35,10 +40,13 @@ elif(mode == "generate"):
     print('We generated the following number : ' + generate(number))
 
 elif(mode == "checksum"):
+    #If we have the first 15 digits of the number, we calculate the last digit.
     if len(number) == 15:
         print(checksum(number))
+    #If we do not, we exit the program as we need the first numbers.
     else:
         sys.exit("To calculate the checksum, we need the first 15 digits. If you have less, then use the generate option.")
 
+#If the user doesn't input a valid mode, we exit the program and throw an exception.
 else:
     raise Exception('Please input a valid mode.')
