@@ -14,7 +14,6 @@ def checksum(incompleteNumber):
     numberNeeded = 10 - (verify(incompleteNumber) % 10) % 10
 
     #We sometimes can find that the number needed is 10. When this is the case, we set the number needed to 0.
-    #This would not have to exist if I fixed my code just above.
     if(numberNeeded == 10):
         numberNeeded = 0
     

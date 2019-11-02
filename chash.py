@@ -19,7 +19,7 @@ else:
 mode = sys.argv[1]
 number = sys.argv[2]
 
-if not number.isdigit():
+if not number.isdigit() and number!= "" :
     raise Exception('Your number should only contain digits !')
 
 #We check what mode the user wants to use
