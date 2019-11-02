@@ -21,7 +21,6 @@ def checksum(incompleteNumber):
     #with what we need to add to the current sum to get a multiple of 10
     for i in range(10):
             if (luhnAddition(i) == numberNeeded):
-                print('The key associated with the first 15 numbers is : ' + str(i))
                 incompleteNumber += str(luhnAddition(i))
                 return incompleteNumber
     raise RuntimeError('There was an error during key calculation !')

@@ -42,7 +42,7 @@ elif(mode == "generate"):
 elif(mode == "checksum"):
     #If we have the first 15 digits of the number, we calculate the last digit.
     if len(number) == 15:
-        print(checksum(number))
+        print("The last digit needed is : " + checksum(number)[15:] + "\nThe complete number is " + checksum(number))
     #If we do not, we exit the program as we need the first numbers.
     else:
         sys.exit("To calculate the checksum, we need the first 15 digits. If you have less, then use the generate option.")
