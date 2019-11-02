@@ -22,8 +22,11 @@ def checkVendor(ccNumber):
             print("The vendor of the card is " + infos["scheme"])
         if 'country' in infos:
             print("This card has been issued in : " + infos["country"]["alpha2"])
-        if 'brand' in infos:
-            print("This card is a " + infos["brand"] + " card")
+        try:
+            if 'brand' in infos :
+                print("This card is a " + infos["brand"] + " card")
+        except:
+            print('We could not find any brand for the card.')
 
 
 def getVendorAPI(ccNumber):
